@@ -18,15 +18,22 @@ const ForecastClient = {
           const weekDay = unixTimeToDay(val.dt);
           const englishDay = englishDays[weekDay];
           const { slots = {} } = acc[weekDay] || {};
+          const { tempratures = [] } = acc[weekDay] || {};
+          const { maxTemprature = -1000 } = acc[weekDay] || {};
+          const { minTemprature = 1000 } = acc[weekDay] || {};
+
           return {
             ...acc,
             [weekDay]: {
+              tempratures: [val.main.temp, ...tempratures],
               day: englishDay,
-              // maxTemprature: "",
-              // minTemprature: "",
+              maxTemprature:
+                val.main.temp > maxTemprature ? val.main.temp : maxTemprature,
+              minTemprature:
+                val.main.temp < minTemprature ? val.main.temp : minTemprature,
               slots: {
                 [val.dt_txt]: {
-                  ...val
+                  temprature: val.main.temp
                 },
                 ...slots
               }
