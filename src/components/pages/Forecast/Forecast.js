@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import config from "../../../config";
-import api from "../../../services/api/api";
+import { ForecastClient } from "../../../services/clients/ForecastClient";
 
 class Forecast extends Component {
   constructor(props) {
@@ -13,15 +12,10 @@ class Forecast extends Component {
 
   async componentDidMount() {
     try {
-      const response = await api.get(
-        "http://api.openweathermap.org/data/2.5/forecast",
-        {
-          q: "glasgow,uk",
-          appid: config.weatherApiKey
-        }
-      );
+      const response = await ForecastClient.getFiveDayForecast("glasgow");
+      console.log("response", response);
       this.setState({
-        city: response.city.name,
+        city: response.city,
         error: undefined
       });
     } catch (e) {

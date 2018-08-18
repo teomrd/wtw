@@ -54,9 +54,7 @@ export const checkResponse = async response => {
   return Promise.reject(body);
 };
 
-const defaultHeaders = {
-  mode: "cors"
-};
+const defaultHeaders = {};
 
 const api = {
   get: (endpoint, params, headers = defaultHeaders) => {
