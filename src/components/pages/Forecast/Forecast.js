@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { ForecastClient } from "../../../services/clients/ForecastClient";
+import DayForecast from "./DayForecast/DayForecast";
 
 class Forecast extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true
+      loading: true,
+      days: {}
     };
   }
 
@@ -16,6 +18,7 @@ class Forecast extends Component {
       console.log("response", response);
       this.setState({
         city: response.city,
+        days: response.days,
         error: undefined
       });
     } catch (e) {
@@ -29,7 +32,7 @@ class Forecast extends Component {
   }
 
   render() {
-    const { city, temprature, loading, error } = this.state;
+    const { city, temprature, loading, error, days } = this.state;
     return loading ? (
       <h1> Loading...</h1>
     ) : (
@@ -37,6 +40,11 @@ class Forecast extends Component {
         <h1>{city}</h1>
         <p>{temprature}</p>
         <strong>{error}</strong>
+        <div>
+          {Object.values(days).map(({ day }, index) => (
+            <DayForecast key={`${day}-${index}`} day={day} />
+          ))}
+        </div>
       </div>
     );
   }
