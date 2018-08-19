@@ -21,6 +21,7 @@ const normalizeForecastSlotsPerWeekDays = list =>
           val.main.temp < minTemprature ? val.main.temp : minTemprature,
         slots: {
           [val.dt_txt]: {
+            weather: val.weather[0],
             temprature: val.main.temp
           },
           ...slots
@@ -39,6 +40,7 @@ const ForecastClient = {
         appid: config.weatherApiKey
       })
       .then(({ list, city }) => {
+        console.log("list", list);
         return {
           city: city.name,
           days: normalizeForecastSlotsPerWeekDays(list)
