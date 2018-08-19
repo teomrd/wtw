@@ -1,6 +1,5 @@
-import { stringify } from "query-string";
 import config from "../../config";
-
+import { stringify } from "../../utils";
 class CustomError extends Error {
   constructor(message, status, ...params) {
     super(...params);

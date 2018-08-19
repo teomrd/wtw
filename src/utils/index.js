@@ -13,3 +13,6 @@ export const getEnglishDay = (date = new Date()) => {
   };
   return englishDays[date.getDay()];
 };
+
+export const stringify = (params = {}) =>
+  new URLSearchParams(params).toString();
