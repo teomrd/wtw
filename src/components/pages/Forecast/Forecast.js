@@ -41,9 +41,17 @@ class Forecast extends Component {
         <p>{temprature}</p>
         <strong>{error}</strong>
         <div>
-          {Object.values(days).map(({ day }, index) => (
-            <DayForecast key={`${day}-${index}`} day={day} />
-          ))}
+          {Object.values(days).map(
+            ({ day, minTemprature, maxTemprature, slots }, index) => (
+              <DayForecast
+                key={`${day}-${index}`}
+                day={day}
+                minTemprature={minTemprature}
+                maxTemprature={maxTemprature}
+                slots={slots}
+              />
+            )
+          )}
         </div>
       </div>
     );
