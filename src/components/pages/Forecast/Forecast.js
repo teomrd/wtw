@@ -33,7 +33,7 @@ class Forecast extends Component {
 
   getCurrentTemprature() {
     try {
-      const slots = this.state.days[0].slots || {};
+      const slots = Object.values(this.state.days)[0].slots || {};
       return Object.values(slots)[0].temprature;
     } catch (e) {
       console.error(e);
