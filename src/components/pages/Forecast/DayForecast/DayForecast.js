@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Collapsible from "../../../../lib/Collapsible/Collapsible";
+import Slots from "./Slots/Slots";
 
-const ForecastHeader = ({
+export const ForecastHeader = ({
   toggle,
   expanded,
   day,
@@ -10,7 +11,7 @@ const ForecastHeader = ({
   minTemprature
 }) => (
   <div
-    class="columns"
+    className="columns"
     onClick={toggle}
     style={{
       cursor: "pointer"
@@ -19,8 +20,12 @@ const ForecastHeader = ({
     <h3 className="column">{day}</h3>
     <div className="column has-text-right">
       <div className="columns">
-        <div className="column has-text-weight-bold">{maxTemprature} °C</div>
-        <div className="column has-text-weight-light">{minTemprature} °C</div>
+        <div className="column has-text-weight-bold">
+          {maxTemprature.toFixed(1)}°
+        </div>
+        <div className="column has-text-weight-light">
+          {minTemprature.toFixed(1)}°
+        </div>
       </div>
     </div>
   </div>
@@ -31,25 +36,6 @@ ForecastHeader.propTypes = {
   maxTemprature: PropTypes.number.isRequired,
   minTemprature: PropTypes.number.isRequired
 };
-
-const Slots = ({ slots }) => (
-  <div
-    className="columns"
-    style={{
-      padding: "2.5% 0 2.5% 2.5%",
-      borderTop: "1px solid",
-      borderBottom: "1px solid"
-    }}
-  >
-    <div class="column">1 . dasinaso</div>
-    <div class="column">2 . dasinaso</div>
-    <div class="column">3 . dasinaso</div>
-    <div class="column">4 . dasinaso</div>
-    <div class="column">5 . dasinaso</div>
-    <div class="column">6 . dasinaso</div>
-    <div class="column">7 . dasinaso</div>
-  </div>
-);
 
 const DayForecast = ({ day, maxTemprature, minTemprature, slots }) => (
   <Collapsible

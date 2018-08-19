@@ -37,11 +37,11 @@ class Forecast extends Component {
       <h1 className="title has-text-centered"> Loading...</h1>
     ) : (
       <div className="forecast">
-        <section class="hero has-text-centered ">
-          <div class="hero-body">
-            <div class="container ">
-              <h1 class="title is-1 has-text-white"> {city}</h1>
-              <h2 class="subtitle is-3 has-text-white">14 °C</h2>
+        <section className="hero has-text-centered ">
+          <div className="hero-body">
+            <div className="container ">
+              <h1 className="title is-1 has-text-white"> {city}</h1>
+              <h2 className="subtitle is-3 has-text-white">14 °C</h2>
             </div>
           </div>
         </section>
