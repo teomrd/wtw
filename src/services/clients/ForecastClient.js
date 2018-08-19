@@ -31,7 +31,7 @@ const normalizeForecastSlotsPerWeekDays = list =>
   }, {});
 
 const ForecastClient = {
-  baseUrl: "http://api.openweathermap.org/data/2.5",
+  baseUrl: "//api.openweathermap.org/data/2.5",
   getFiveDayForecast: function(city) {
     return api
       .get(`${this.baseUrl}/forecast`, {
