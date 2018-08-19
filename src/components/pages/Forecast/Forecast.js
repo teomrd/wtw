@@ -31,6 +31,16 @@ class Forecast extends Component {
     });
   }
 
+  getCurrentTemprature() {
+    try {
+      const slots = this.state.days[0].slots || {};
+      return Object.values(slots)[0].temprature;
+    } catch (e) {
+      console.error(e);
+    }
+    return "-";
+  }
+
   render() {
     const { city, temprature, loading, error, days } = this.state;
     return loading ? (
@@ -41,7 +51,9 @@ class Forecast extends Component {
           <div className="hero-body">
             <div className="container ">
               <h1 className="title is-1 has-text-white"> {city}</h1>
-              <h2 className="subtitle is-3 has-text-white">14 °C</h2>
+              <h2 className="subtitle is-3 has-text-white">
+                {this.getCurrentTemprature()} °C
+              </h2>
             </div>
           </div>
         </section>
