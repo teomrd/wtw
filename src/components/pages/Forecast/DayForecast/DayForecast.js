@@ -2,10 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const DayForecast = ({ day, maxTemprature, minTemprature }) => (
-  <div>
-    <h3>{day}</h3>
-    <div style={{ float: "right" }}>
-      {maxTemprature} °C {minTemprature} °C
+  <div class="columns">
+    <h3 className="column">{day}</h3>
+    <div className="column has-text-right">
+      <div className="columns">
+        <div className="column has-text-weight-bold">{maxTemprature} °C</div>
+        <div className="column has-text-weight-light">{minTemprature} °C</div>
+      </div>
     </div>
   </div>
 );

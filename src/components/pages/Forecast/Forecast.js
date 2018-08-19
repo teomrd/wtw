@@ -34,11 +34,17 @@ class Forecast extends Component {
   render() {
     const { city, temprature, loading, error, days } = this.state;
     return loading ? (
-      <h1> Loading...</h1>
+      <h1 className="title has-text-centered"> Loading...</h1>
     ) : (
       <div className="forecast">
-        <h1 style={{ textAlign: "center" }}>{city}</h1>
-        <p>{temprature}</p>
+        <section class="hero has-text-centered ">
+          <div class="hero-body">
+            <div class="container ">
+              <h1 class="title is-1 has-text-white"> {city}</h1>
+              <h2 class="subtitle is-3 has-text-white">14 °C</h2>
+            </div>
+          </div>
+        </section>
         <strong>{error}</strong>
         <div>
           {Object.values(days).map(
