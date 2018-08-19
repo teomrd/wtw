@@ -5,7 +5,7 @@ import Forecast from "./components/pages/Forecast/Forecast";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App blue-skies-gradient">
         <Forecast />
       </div>
     );

@@ -1,5 +1,21 @@
-body {
+html, body {
+  top: 0;
+  bottom: 0;
   margin: 0;
   padding: 0;
+  width: 100%;
   font-family: sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+#root {
+  height: 100vh;
 }

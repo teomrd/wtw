@@ -36,8 +36,8 @@ class Forecast extends Component {
     return loading ? (
       <h1> Loading...</h1>
     ) : (
-      <div>
-        <h1>{city}</h1>
+      <div className="forecast">
+        <h1 style={{ textAlign: "center" }}>{city}</h1>
         <p>{temprature}</p>
         <strong>{error}</strong>
         <div>
